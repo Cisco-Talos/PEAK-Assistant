@@ -388,11 +388,11 @@ Anthropic agents require only the `model` field:
   "agents": {
     "summarizer_agent": {
       "provider": "anthropic-main",
-      "model": "claude-3-5-sonnet-20241022"
+      "model": "claude-sonnet-4-6"
     },
     "hunt_planner": {
       "provider": "anthropic-main",
-      "model": "claude-3-5-haiku-20241022"
+      "model": "claude-haiku-4-5-20251001"
     }
   }
 }

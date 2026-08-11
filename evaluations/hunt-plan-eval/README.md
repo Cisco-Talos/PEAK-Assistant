@@ -137,7 +137,7 @@ TargetImage="*\\lsass.exe"
     "evaluation_date": "2025-01-09 12:00:00",
     "model_config": "model_config.json",
     "models_used": {
-      "technical_accuracy": "anthropic:claude-opus-4-1-20250805",
+      "technical_accuracy": "anthropic:claude-opus-4-8",
       ...
     },
     "files": ["plan1.md"]
@@ -304,34 +304,34 @@ See `model_config.json.example` for a complete example:
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "tier1-critical": {
       "match": ["technical_accuracy", "query_efficiency", 
                 "organization_progression", "template_conformance"],
-      "model": "claude-opus-4-1-20250805",
+      "model": "claude-opus-4-8",
       "comment": "Tier 1 metrics (weight 2.5) - use highest quality model"
     },
     "tier2-quality": {
       "match": ["hypothesis_alignment", "actionability_clarity", 
                 "environmental_integration"],
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Tier 2 metrics (weight 2.0) - use quality model"
     },
     "tier3-standard": {
       "match": ["operational_practicality"],
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Tier 3 metrics (weight 1.5) - use quality model"
     },
     "tier4-fast": {
       "match": ["comprehensiveness", "threat_intel_integration"],
-      "model": "claude-3-5-haiku-20241022",
+      "model": "claude-haiku-4-5-20251001",
       "comment": "Tier 4 metrics (weight 1.2) - use fast model"
     },
     "utility": {
       "match": ["section_extractor"],
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Section extraction utility"
     }
   }

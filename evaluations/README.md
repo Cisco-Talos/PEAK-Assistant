@@ -141,19 +141,19 @@ The configuration system resolves judge models in this order:
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "critical-judges": {
       "match": ["technical_accuracy", "assertion_quality"],
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805",
+      "model": "claude-opus-4-8",
       "comment": "Use best model for critical evaluations"
     },
     "fast-judges": {
       "match": ["grammatical_clarity", "structure_compliance"],
       "provider": "anthropic-main",
-      "model": "claude-3-5-haiku-20241022",
+      "model": "claude-haiku-4-5-20251001",
       "comment": "Use fast model for simple checks"
     }
   }

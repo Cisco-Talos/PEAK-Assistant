@@ -25,37 +25,37 @@
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "high-weight-metrics": {
       "match": ["technical_depth", "technical_accuracy", "detection_quality"],
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805",
+      "model": "claude-opus-4-8",
       "comment": "Weight 2.0 metrics - use highest quality model"
     },
     "medium-weight-metrics": {
       "match": ["dataset_documentation", "instruction_clarity", "log_example_quality"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Weight 1.7-1.8 metrics - use quality model"
     },
     "standard-metrics": {
       "match": ["structure_compliance", "mitre_coverage", "url_validity", "reference_quality", "cross_section_consistency"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Weight 1.2-1.5 metrics - use quality model"
     },
     "fast-metrics": {
       "match": ["threat_actor_specificity", "tool_documentation"],
       "provider": "anthropic-main",
-      "model": "claude-3-5-haiku-20241022",
+      "model": "claude-haiku-4-5-20251001",
       "comment": "Weight 1.0 metrics - use fast model"
     },
     "utility": {
       "match": ["section_extractor"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Section extraction utility - use quality model"
     }
   },
@@ -63,15 +63,15 @@
     "_comment": "You can override specific judges here if needed",
     "technical_accuracy": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     },
     "technical_depth": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     },
     "detection_quality": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     }
   }
 }

@@ -25,37 +25,37 @@
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "tier1-critical": {
       "match": ["technical_accuracy", "query_efficiency", "organization_progression", "template_conformance"],
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805",
+      "model": "claude-opus-4-8",
       "comment": "Tier 1 metrics (weight 2.5) - use highest quality model"
     },
     "tier2-quality": {
       "match": ["hypothesis_alignment", "actionability_clarity", "environmental_integration"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Tier 2 metrics (weight 2.0) - use quality model"
     },
     "tier3-standard": {
       "match": ["operational_practicality"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Tier 3 metrics (weight 1.5) - use quality model"
     },
     "tier4-fast": {
       "match": ["comprehensiveness", "threat_intel_integration"],
       "provider": "anthropic-main",
-      "model": "claude-3-5-haiku-20241022",
+      "model": "claude-haiku-4-5-20251001",
       "comment": "Tier 4 metrics (weight 1.2) - use fast model"
     },
     "utility": {
       "match": ["section_extractor"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Section extraction utility - use quality model"
     }
   },
@@ -63,11 +63,11 @@
     "_comment": "You can override specific judges here if needed",
     "technical_accuracy": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     },
     "query_efficiency": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     }
   }
 }
