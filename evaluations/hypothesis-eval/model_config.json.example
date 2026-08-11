@@ -25,25 +25,25 @@
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "critical-judges": {
       "match": ["assertion_quality"],
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805",
+      "model": "claude-opus-4-8",
       "comment": "Use highest quality model for critical evaluation"
     },
     "quality-judges": {
       "match": ["specificity", "scope_appropriateness", "technical_precision", "observable_focus", "logical_coherence"],
       "provider": "anthropic-main",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "comment": "Use quality model for complex evaluation"
     },
     "fast-judges": {
       "match": ["detection_independence", "grammatical_clarity"],
       "provider": "anthropic-main",
-      "model": "claude-3-5-haiku-20241022",
+      "model": "claude-haiku-4-5-20251001",
       "comment": "Use fast model for simple checks"
     }
   },
@@ -51,7 +51,7 @@
     "_comment": "You can override specific judges here if needed",
     "assertion_quality": {
       "provider": "anthropic-main",
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     }
   }
 }

@@ -274,16 +274,16 @@ See `model_config.json.example` for a complete example. Key patterns:
   },
   "defaults": {
     "provider": "anthropic-main",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-sonnet-4-6"
   },
   "groups": {
     "critical-judges": {
       "match": ["assertion_quality"],
-      "model": "claude-opus-4-1-20250805"
+      "model": "claude-opus-4-8"
     },
     "fast-judges": {
       "match": ["detection_independence", "grammatical_clarity"],
-      "model": "claude-3-5-haiku-20241022"
+      "model": "claude-haiku-4-5-20251001"
     }
   }
 }
@@ -292,16 +292,16 @@ See `model_config.json.example` for a complete example. Key patterns:
 ### Recommended Model Tiers
 
 **High Quality (Critical):**
-- Anthropic: `claude-opus-4-1-20250805`
+- Anthropic: `claude-opus-4-8`
 - OpenAI: `gpt-4o` or `o1-preview`
 - Azure: Deploy equivalent models
 
 **Quality (Complex):**
-- Anthropic: `claude-sonnet-4-20250514`
+- Anthropic: `claude-sonnet-4-6`
 - OpenAI: `gpt-4o`
 
 **Fast (Simple):**
-- Anthropic: `claude-3-5-haiku-20241022`
+- Anthropic: `claude-haiku-4-5-20251001`
 - OpenAI: `gpt-4o-mini`
 
 ## Requirements

@@ -38,6 +38,19 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from peak_assistant.utils.model_config_loader import ModelConfigLoader, ModelConfigError
 
+# Claude Opus 4.7 and later return a 400 when temperature/top_p/top_k are set to a
+# non-default value: https://platform.claude.com/docs/en/about-claude/model-deprecations
+SAMPLING_PARAM_REJECTING_MODELS = (
+    "claude-opus-4-7",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-fable-5",
+)
+
+
+def accepts_sampling_params(model: str) -> bool:
+    return not model.startswith(SAMPLING_PARAM_REJECTING_MODELS)
+
 
 class EvaluatorModelClient:
     """Synchronous wrapper for model clients used in evaluation scripts.
@@ -137,12 +150,14 @@ class EvaluatorModelClient:
         
         if provider_type == "anthropic":
             model = agent_config["model"]
-            response = client.messages.create(
-                model=model,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                messages=[{"role": "user", "content": prompt}],
-            )
+            params: Dict[str, Any] = {
+                "model": model,
+                "max_tokens": max_tokens,
+                "messages": [{"role": "user", "content": prompt}],
+            }
+            if accepts_sampling_params(model):
+                params["temperature"] = temperature
+            response = client.messages.create(**params)
             return response.content[0].text
         elif provider_type == "azure":
             model = agent_config["deployment"]
